@@ -95,15 +95,15 @@ function detectclick(j){
 		var verifend = puissance4(ligneEncours, j, 0, 0);
 		if (verifend) {
 			jeu = false;
-			affichetextannonce("Le joueur " + nomdujoueur(numeroJoueur) + " a gagné la partie.")
-			affichetextannonce("C'est au tour du joueur "+ nomdujoueur(numeroJoueur));
-		}else if{
+			affichetextannonce("Le joueur " + nomJoueur(numeroJoueur) + " a gagné la partie.")
+			affichetextannonce("C'est au tour du joueur "+ nomJoueur(numeroJoueur));
+		}else{
 			if (numeroJoueur == 1) {
 				numeroJoueur = 2;
 			}else{
-				numeroJoueur = 1:
+				numeroJoueur = 1;
 			}
-			affichetextannonce("C'est au tour du joueur " + nomdujoueur(numeroJoueur));
+			affichetextannonce("C'est au tour du joueur " + nomJoueur(numeroJoueur));
 		}
 	}
 }
@@ -119,7 +119,7 @@ function verifposition(j){
 }
 
 function posejeton (j){
-	if (nbrLignes - 1 ; i >= 0, ; i--) {
+	for(var i=nbrLignes-1; i >= 0; i--) {
 		if (plateauJeu[i][j] == 0) {
 			plateauJeu[i][j] = numeroJoueur;
 			refreshtableau(i,j,numeroJoueur);
@@ -129,7 +129,7 @@ function posejeton (j){
 }
 
 function refreshtableau(x,y,i){
-	document.getElementById(x + '-' + y).innerHTML = "<div class='" + numeroJoueur + "'></div>";
+	document.getElementById(x + '-' + y).innerHTML = "<div class='joueur" +  i + "'></div>";
 }
 
 function puissance4 (ligne, colonne, l, c){
