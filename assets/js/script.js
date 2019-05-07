@@ -83,3 +83,56 @@ function creertableau(){
 	document.getElementById("puissance_4").innerHTML = text;
 	
 }
+
+function detectclick(j){
+	//condition
+	//appel fonction verifposition(j) et jeu
+	//vérifie que verifposition avec argument j retourne vrai et que game == true
+	verifposition(j);
+	if (verifposition(j) == true && jeu == true) {
+		//numéro de la ligne en cours
+		var ligneEncours = posejeton(j);
+		var verifend = puissance4(ligneEncours, j, 0, 0);
+		if (verifend) {
+			jeu = false;
+			affichetextannonce("Le joueur " + nomdujoueur(numeroJoueur) + " a gagné la partie.")
+			affichetextannonce("C'est au tour du joueur "+ nomdujoueur(numeroJoueur));
+		}else if{
+			if (numeroJoueur == 1) {
+				numeroJoueur = 2;
+			}else{
+				numeroJoueur = 1:
+			}
+			affichetextannonce("C'est au tour du joueur " + nomdujoueur(numeroJoueur));
+		}
+	}
+}
+
+function verifposition(j){
+	//si la case du haut de la colonne est vide ...
+	// return true, sinon return false
+	if (plateauJeu[0][j] == 0) {
+		return true;
+	}else{
+		return false;
+	}
+}
+
+function posejeton (j){
+	if (nbrLignes - 1 ; i >= 0, ; i--) {
+		if (plateauJeu[i][j] == 0) {
+			plateauJeu[i][j] = numeroJoueur;
+			refreshtableau(i,j,numeroJoueur);
+			return i;
+		}
+	}
+}
+
+function refreshtableau(x,y,i){
+	document.getElementById(x + '-' + y).innerHTML = "<div class='" + numeroJoueur + "'></div>";
+}
+
+function puissance4 (ligne, colonne, l, c){
+	console.log("valeur :" + nbrLignes + " " + nbrColonnes + " / increment " + l + " " + c);
+	return false;
+}
