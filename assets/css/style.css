@@ -9,7 +9,7 @@ td {
 }
 
 .joueur1, .joueur2 {
-	border-radius : 50px
+	border-radius : 50px;
 	width: 55px;
 	height : 55px;
 	display: inline-block;
