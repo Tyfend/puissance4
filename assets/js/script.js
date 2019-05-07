@@ -24,7 +24,7 @@ function newGame(){
 		}
 	}
 	numeroJoueur = 1;
-	affichetextannonce("Le jeu commence! C'est au tour du joueur "+ nomdujoueur(cejoueur));
+	affichetextannonce("Le jeu commence! C'est au tour du joueur "+ nomJoueur(numeroJoueur));
 	jeu = true;
 	creertableau();
 }
@@ -51,7 +51,7 @@ function creertableau(){
 	//boucle, nrb de tour = nbr de lignes (index i)
 	for (var i = 0; i < nbrLignes; i++) {
 	// à chaque tour ajout dans text la chaine de carac qui sera l'ouverture de la balise tr
-		text =+ "<tr>";
+		text += "<tr>";
 
 		//boucle, nbr de tour = nbr colonnes (index j)
 		for (var j = 0; j < nbrColonnes; j++) {
@@ -62,23 +62,23 @@ function creertableau(){
 			//condition : si plateau[i][j] == 1
 			if (plateauJeu[i][j] == 1){
 				//ajouter dans text : <div class joueur1> + </div>
-				text =+ "<div class='joueur1'></div>";
+				text += "<div class='joueur1'></div>";
 			}else if (plateauJeu[i][j] == 2){
 				//ajout dans text div classjoueur2 + </div>
-				text =+ "<div class='joueur2'></div>";
+				text += "<div class='joueur2'></div>";
 			}
 
 			//ajouter à text la balise fermante td
-			text =+ "</td>";
+			text += "</td>";
 		}
 
 	//ajout balise fermante tr dans texte
-	text =+ "</tr>";
+	text += "</tr>";
 
 	}
 
 	//ajout text balise fermante table
-	text =+ "</table>";
+	text += "</table>";
 	//ajout au html (id puissance 4) la variable texte
 	document.getElementById("puissance_4").innerHTML = text;
 	
