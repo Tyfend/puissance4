@@ -15,9 +15,9 @@ for (var i = 0; i =< nbrLignes ; i++) {
 
 function newGame(){
 	// boucle qui aura le nbr de tour = nrb de lignes (index i)
-	for (var i = Things.length - 1; i >= 0; j++) {
+	for (var i = 0; i >= nbrLignes; i++) {
 		//boucle : nbr de tour = nrb de colonnes (index j)
-		for (var j = Things.length - 1; j >= 0; j++) {
+		for (var j = 0; j >= nbrColonnes; j++) {
 			//plateau -> o à la première clé i et à la deuxième clé j
 			plateauJeu = [0][0];
 		}
