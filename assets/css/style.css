@@ -13,6 +13,8 @@ td {
 	width: 55px;
 	height : 55px;
 	display: inline-block;
+	-webkit-animation: bounceInDown 0.5s 1;
+	        animation: bounceInDown 0.5s 1;
 }
 
 .joueur1 {
@@ -22,4 +24,56 @@ td {
 .joueur2 {
 	background-color : blue;
 }
+#puissance_4{
+	overflow: hidden;
+}
 
+@-webkit-keyframes bounceInDown{
+	0%{
+		opacity: 0;
+		-webkit-transform: translate3d(0, -3000px, 0);
+		        transform: translate3d(0, -3000px, 0);
+	}
+	60%{
+		opacity:1;
+		-webkit-transform: translate3d(0,10px,0);
+		        transform: translate3d(0,10px,0);
+	}
+	75%{
+		-webkit-transform: translate3d(0,-5px,0);
+		        transform: translate3d(0,-5px,0);
+	}
+	90%{
+		-webkit-transform: translate3d(0,5px,0);
+		        transform: translate3d(0,5px,0);
+	}
+	100%{
+		-webkit-transform: none;
+		        transform: none;
+	}
+}
+
+@keyframes bounceInDown{
+	0%{
+		opacity: 0;
+		-webkit-transform: translate3d(0, -3000px, 0);
+		        transform: translate3d(0, -3000px, 0);
+	}
+	60%{
+		opacity:1;
+		-webkit-transform: translate3d(0,10px,0);
+		        transform: translate3d(0,10px,0);
+	}
+	75%{
+		-webkit-transform: translate3d(0,-5px,0);
+		        transform: translate3d(0,-5px,0);
+	}
+	90%{
+		-webkit-transform: translate3d(0,5px,0);
+		        transform: translate3d(0,5px,0);
+	}
+	100%{
+		-webkit-transform: none;
+		        transform: none;
+	}
+}

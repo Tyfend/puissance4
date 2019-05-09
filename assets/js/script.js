@@ -153,7 +153,7 @@ function puissance4 (ligne, colonne, l, c){
 		var vd = 1 + puissance4(ligne -1, colonne+1, -1, 1) + puissance4(ligne +1, colonne -1, 1, -1);
 
 		console.log(va,vb,vc,vd);
-		if (va == 4 || vb == 4 || vc == 4 || vd == 4) {
+		if (va >= 4 || vb >= 4 || vc >= 4 || vd >= 4) {
 			return true;
 		}else{
 			return false;
