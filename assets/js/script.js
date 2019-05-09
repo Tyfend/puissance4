@@ -98,7 +98,7 @@ function detectclick(j){
 		var verifend = puissance4(ligneEncours, j, 0, 0);
 		if (verifend) {
 			jeu = false;
-			affichetextannonce("Le joueur " + nomJoueur(numeroJoueur) + " a gagné la partie.")
+			affichetextannonce("Le joueur " + nomJoueur(numeroJoueur) + " a gagné la partie.");
 		}
 		/*partie non terminée, joueur suivant
 		this.joueur==1 ? this.joueur=2 : this.joueur=1;*/
