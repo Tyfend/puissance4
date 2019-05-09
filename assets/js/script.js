@@ -5,9 +5,10 @@ var jeu = true;
 var	text = "";
 var plateauJeu = [];
 
-// boucle
+
 // nrb de tour sera nrb de lignes dans le jeu
 // a chaque tour : dans le tableau plateau -> nouveau tableau avec index numéro du tour
+// for (var i = 0; i < nbrLignes ; i++) plateauJeu[i] = [];
 for (var i = 0; i < nbrLignes ; i++) {
 	plateauJeu [i] = [];
 }
@@ -89,15 +90,19 @@ function detectclick(j){
 	//appel fonction verifposition(j) et jeu
 	//vérifie que verifposition avec argument j retourne vrai et que game == true
 	verifposition(j);
-	if (verifposition(j) == true && jeu == true) {
+	if (verifposition(j) && jeu) {
 		//numéro de la ligne en cours
 		var ligneEncours = posejeton(j);
+
+		//vérif si vainqueur
 		var verifend = puissance4(ligneEncours, j, 0, 0);
 		if (verifend) {
 			jeu = false;
 			affichetextannonce("Le joueur " + nomJoueur(numeroJoueur) + " a gagné la partie.")
-			affichetextannonce("C'est au tour du joueur "+ nomJoueur(numeroJoueur));
-		}else{
+		}
+		/*partie non terminée, joueur suivant
+		this.joueur==1 ? this.joueur=2 : this.joueur=1;*/
+		else{
 			if (numeroJoueur == 1) {
 				numeroJoueur = 2;
 			}else{
@@ -119,7 +124,7 @@ function verifposition(j){
 }
 
 function posejeton (j){
-	for(var i=nbrLignes-1; i >= 0; i--) {
+	for(var i = (nbrLignes-1); i >= 0; i--) {
 		if (plateauJeu[i][j] == 0) {
 			plateauJeu[i][j] = numeroJoueur;
 			refreshtableau(i,j,numeroJoueur);
@@ -133,6 +138,36 @@ function refreshtableau(x,y,i){
 }
 
 function puissance4 (ligne, colonne, l, c){
-	console.log("valeur :" + nbrLignes + " " + nbrColonnes + " / increment " + l + " " + c);
-	return false;
+	console.log("initial valeur :" + ligne + " " + colonne + " / increment " + l + " " + c);
+	if (c == 0 && l == 0) {
+		//horizontal
+		var va = 1 + puissance4(ligne, colonne-1, 0, -1) + puissance4(ligne, colonne + 1, 0, 1);
+
+		//vertical
+		var vb = 1 + puissance4(ligne -1, colonne, -1, 0) + puissance4(ligne +1, colonne, 1, 0);
+
+		//diag gauche
+		var vc = 1 + puissance4(ligne -1, colonne-1, -1, -1) + puissance4(ligne +1, colonne +1, 1, 1);
+
+		//diag droite
+		var vd = 1 + puissance4(ligne -1, colonne+1, -1, 1) + puissance4(ligne +1, colonne -1, 1, -1);
+
+		console.log(va,vb,vc,vd);
+		if (va == 4 || vb == 4 || vc == 4 || vd == 4) {
+			return true;
+		}else{
+			return false;
+		}
+	}
+	if (ligne < nbrLignes && ligne >=0 && colonne < nbrColonnes && colonne >=0) {
+		console.log("recursive valeur : " + ligne + " " + colonne + " / increment " + l + " " + c);
+		if (plateauJeu[ligne][colonne] == numeroJoueur) {
+			return 1 + puissance4(ligne + l, colonne + c, l, c);
+		}else{
+			return 0;
+		}
+	}
+	return 0;
 }
+
+
